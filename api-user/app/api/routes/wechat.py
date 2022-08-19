@@ -40,13 +40,13 @@ async def callback(
     users_repo: UsersRepository = Depends(get_repository(UsersRepository)),
     settings: AppSettings = Depends(get_app_settings),
 ) -> WechatCallbackResponse:
+    # 检查回调身份是否合法
     try:
         check_signature(wechat_callback_info.token, wechat_callback_info.signature,
                         wechat_callback_info.timestamp, wechat_callback_info.nonce)
     except InvalidSignatureException:
         pass
     
-
     user = await users_repo.create_user(**user_create.dict())
 
     token = jwt.create_access_token_for_user(
