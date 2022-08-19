@@ -10,7 +10,8 @@ from app.db.errors import EntityDoesNotExist
 from app.db.repositories.users import UsersRepository
 from app.models.schemas.wechat import (
     WechatCallbackInfo,
-    WechatCallbackResponse
+    WechatCallbackResponse,
+    UserInResponse
 )
 from app.resources import strings
 from app.services import jwt

@@ -15,3 +15,7 @@ class WechatCallbackInfo(RWSchema):
 
 class WechatCallbackResponse(RWSchema):
     pass
+
+
+class UserInResponse(RWSchema): 
+    pass
